@@ -33,7 +33,11 @@ SRC	=	ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 		ft_itoa.c \
-		ft_split.c
+		ft_split.c \
+		ft_intlen.c \
+		ft_intlenbase.c \
+		ft_itobase.c \
+		ft_itobase_cap.c
 
 SRCb = ft_lstnew_bonus.c\
 	   ft_lstadd_front_bonus.c\

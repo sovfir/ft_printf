@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacinta <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 19:10:35 by gjacinta          #+#    #+#             */
-/*   Updated: 2021/10/13 19:10:41 by gjacinta         ###   ########.fr       */
+/*   Updated: 2021/11/13 14:30:30 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,9 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
+int		ft_intlen(int nbr);
+int		ft_intlenbase(unsigned long nbr, int base);
+char	*ft_itobase(unsigned long n, int base);
+char	*ft_itobase_cap(unsigned long n, int base);
 
 #endif
