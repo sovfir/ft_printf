@@ -3,26 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   functions2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gjacinta <gjacinta@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:54:14 by gjacinta          #+#    #+#             */
-/*   Updated: 2021/11/13 14:54:40 by gjacinta         ###   ########.fr       */
+/*   Updated: 2021/11/14 13:38:52 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <unistd.h>
 
 int	ft_putunsigned(unsigned int nbr)
 {
 	int		index;
-	char	*result;
+	char	*res;
 
 	index = 0;
-	result = ft_itobase(nbr, 10);
-	ft_putstr(result);
-	index = ft_strlen(result);
-	free (result);
+	res = ft_itobase(nbr, 10);
+	ft_putstr(res);
+	index = ft_strlen(res);
+	free (res);
 	return (index);
 }
 
@@ -35,25 +34,25 @@ int	ft_putpcnt(void)
 int	ft_puthex(unsigned long decimalnbr)
 {
 	int		index;
-	char	*result;
+	char	*res;
 
 	index = 0;
-	result = ft_itobase(decimalnbr, 16);
-	ft_putstr(result);
-	index = ft_strlen(result);
-	free (result);
+	res = ft_itobase(decimalnbr, 16);
+	ft_putstr(res);
+	index = ft_strlen(res);
+	free (res);
 	return (index);
 }
 
-int	ft_puthex_cap(unsigned long decimalnbr)
+int	ft_puthex_capital(unsigned long decimalnbr)
 {
 	int		index;
-	char	*result;
+	char	*res;
 
 	index = 0;
-	result = ft_itobase_cap(decimalnbr, 16);
-	ft_putstr(result);
-	index = ft_strlen(result);
-	free (result);
+	res = ft_itobase_capital(decimalnbr, 16);
+	ft_putstr(res);
+	index = ft_strlen(res);
+	free (res);
 	return (index);
 }

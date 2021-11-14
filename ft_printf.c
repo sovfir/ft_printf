@@ -6,66 +6,64 @@
 /*   By: gjacinta <gjacinta@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:36:40 by gjacinta          #+#    #+#             */
-/*   Updated: 2021/11/07 18:24:38 by gjacinta         ###   ########.fr       */
+/*   Updated: 2021/11/14 13:33:13 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
 #include "ft_printf.h"
 
 int	ft_check(char c, va_list args)
 {
-	int	count;
+	int	counter;
 
 	if (c == 'c')
-		count = ft_putchar(va_arg(args, int));
+		counter = ft_putchar(va_arg(args, int));
 	if (c == 's')
-		count = ft_putstr(va_arg(args, char *));
+		counter = ft_putstr(va_arg(args, char *));
 	if (c == 'p')
-		count = ft_putptr(va_arg(args, void *));
+		counter = ft_putpointer(va_arg(args, void *));
 	if (c == 'd')
-		count = ft_putnbr(va_arg(args, int));
+		counter = ft_putnbr(va_arg(args, int));
 	if (c == 'i')
-		count = ft_putnbr(va_arg(args, int));
+		counter = ft_putnbr(va_arg(args, int));
 	if (c == 'u')
-		count = ft_putunsigned(va_arg(args, unsigned int));
+		counter = ft_putunsigned(va_arg(args, unsigned int));
 	if (c == 'x')
-		count = ft_puthex(va_arg(args, unsigned int));
+		counter = ft_puthex(va_arg(args, unsigned int));
 	if (c == 'X')
-		count = ft_puthex_cap(va_arg(args, unsigned int));
+		counter = ft_puthex_capital(va_arg(args, unsigned int));
 	if (c == '%')
-		count = ft_putpcnt();
-	return (count);
+		counter = ft_putpcnt();
+	return (counter);
 }
 
 int	ft_printf(const char *s, ...)
 {
 	int		index;
-	int		returnvalue;
-	int		count;
+	int		otvet;
+	int		counter;
 	va_list	args;
 
 	va_start(args, s);
-	returnvalue = 0;
+	otvet = 0;
 	index = 0;
-	count = 0;
+	counter = 0;
 	while (s[index] != '\0')
 	{
 		if (s[index] != '%')
 		{
 			write(1, &s[index++], 1);
-			returnvalue++;
+			otvet++;
 		}
 		else
 		{
 			index++;
-			count = ft_check(s[index++], args);
-			returnvalue = returnvalue + count;
+			counter = ft_check(s[index++], args);
+			otvet = otvet + counter;
 		}
 	}
 	va_end(args);
-	return (returnvalue);
+	return (otvet);
 }
 
 /* va_list (vector argumment list) - указатель на аргументы

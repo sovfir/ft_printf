@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gjacinta <gjacinta@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:46:24 by gjacinta          #+#    #+#             */
-/*   Updated: 2021/11/13 14:46:51 by gjacinta         ###   ########.fr       */
+/*   Updated: 2021/11/14 13:38:39 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <unistd.h>
 
 int	ft_putchar(char c)
 {
@@ -38,20 +37,20 @@ int	ft_putstr(char *c)
 	return (index);
 }
 
-int	ft_putptr(void *ptr)
+int	ft_putpointer(void *ptr)
 {
-	unsigned long	addr;
-	unsigned long	res;
+	unsigned long	adres;
+	unsigned long	result;
 	int				index;
 
 	if (ptr == NULL)
 		return (write(1, "0x0", 3));
-	addr = (unsigned long) ptr;
+	adres = (unsigned long) ptr;
 	index = 0;
 	write(1, "0x", 2);
 	index = index + 2;
-	res = ft_puthex(addr);
-	index = index + res;
+	result = ft_puthex(adres);
+	index = index + result;
 	return (index);
 }
 
