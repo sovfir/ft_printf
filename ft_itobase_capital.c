@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	calc(unsigned long n, int base)
+static int	distance(unsigned long n, int base)
 {
 	int	index;
 
@@ -27,11 +27,11 @@ static int	calc(unsigned long n, int base)
 	return (index);
 }
 
-static char	*compare(unsigned long n, char *result, int base)
+static char	*convert(unsigned long n, char *result, int base)
 {
 	int		len;
 
-	len = calc(n, base);
+	len = distance(n, base);
 	if (result == 0)
 		return (0);
 	if (n == 0)
@@ -52,11 +52,11 @@ char	*ft_itobase_capital(unsigned long n, int base)
 	int		len;
 	char	*result;
 
-	len = calc(n, base);
+	len = distance(n, base);
 	result = (char *)malloc((len + 1) * sizeof(char));
 	if (result == 0)
 		return (0);
-	result = compare(n, result, base);
+	result = convert(n, result, base);
 	result[len] = '\0';
 	return (result);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gjacinta <gjacinta@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:36:40 by gjacinta          #+#    #+#             */
-/*   Updated: 2021/11/14 13:33:13 by gjacinta         ###   ########.fr       */
+/*   Updated: 2021/11/16 18:35:33 by gjacinta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,3 @@ int	ft_printf(const char *s, ...)
 	va_end(args);
 	return (otvet);
 }
-
-/* va_list (vector argumment list) - указатель на аргументы
-void va_start (va_list ap, last) - инициализация списка
-аргументов, где last - последний фиксированный аргумент
-type va_arg(va_list ap, type) взять очередной аргумент
-типа type и передвинуть за него указатель ap
-void va_end(va_list ap) - конец обработки списка параметров */
