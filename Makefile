@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gjacinta <gjacinta@student.21-school.ru    +#+  +:+       +#+         #
+#    By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/13 14:56:23 by gjacinta          #+#    #+#              #
-#    Updated: 2021/11/14 13:32:14 by gjacinta         ###   ########.fr        #
+#    Updated: 2021/11/20 13:54:46 by gjacinta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ CC = gcc
 
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror
+HEADER	=	ft_printf.h
+OBJ = $(SRC:%.c=%.o)
+
+FLAGS = -Wall -Wextra -Werror -I$(HEADER)
 
 SRC = ft_printf.c \
 functions.c \
@@ -29,21 +32,25 @@ ft_strlen.c
 
 MAKE = make
 
-all: $(NAME)
-
 .PHONY: all clean fclean re bonus
 
-$(NAME):
-	$(CC) $(FLAGS) -c $(SRC)
-	ar -rcs $(NAME) *.o $(LIBFT_PATH)*.o
+all: $(NAME)
+
+$(NAME):	$(OBJ) $(HEADER)
+	ar rcs $(NAME) $?
+
+%.o : %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: all $(OBJb)
+	make OBJ="$(OBJb)" all
 
 clean:
-	rm -f *.out
-	rm -f *.o
-	$(MAKE) clean -C $(LIBFT_PATH)
+	@rm -f $(OBJ)
+	@rm -f $(OBJb)
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) fclean -C $(LIBFT_PATH)
+	@rm -f $(NAME)
+	@echo "$(NAME) deleted"
 
 re: fclean all
