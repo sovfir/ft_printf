@@ -6,11 +6,11 @@
 #    By: gjacinta <gjacinta@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/13 14:56:23 by gjacinta          #+#    #+#              #
-#    Updated: 2021/11/20 13:54:46 by gjacinta         ###   ########.fr        #
+#    Updated: 2021/11/20 14:06:06 by gjacinta         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 
 NAME = libftprintf.a
 
@@ -40,7 +40,7 @@ $(NAME):	$(OBJ) $(HEADER)
 	ar rcs $(NAME) $?
 
 %.o : %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 bonus: all $(OBJb)
 	make OBJ="$(OBJb)" all
